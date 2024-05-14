@@ -23,6 +23,10 @@ const todoSlice = createSlice({
         completed: false,
       })
     },
+    remove: (state, action) => {
+      state = state.filter((todo) => todo.id !== action.payload.id)
+      return state
+    },
   },
 })
 
@@ -32,7 +36,7 @@ export const store = configureStore({
   },
 })
 
-export const { add } = todoSlice.actions
+export const { add, remove } = todoSlice.actions
 
 export type RootState = ReturnType<typeof store.getState>
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
