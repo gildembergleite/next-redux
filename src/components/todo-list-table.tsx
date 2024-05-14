@@ -8,11 +8,11 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '@/store'
 import { Checkbox } from './ui/checkbox'
 
 export function TodoListTable() {
-  const todos = useSelector((store) => store.todo)
+  const todos = useAppSelector((store) => store.todo)
 
   return (
     <Table>
