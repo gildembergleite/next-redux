@@ -1,16 +1,24 @@
 'use client'
 
+import { add } from '@/store'
 import { PlusIcon } from 'lucide-react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Button } from './ui/button'
 import { Form, FormField, FormItem } from './ui/form'
 import { Input } from './ui/input'
 
-export function AddNewTodo() {
-  const form = useForm()
+type AddNewTodoFormData = {
+  text: string
+}
 
-  function addNewToDo() {
-    console.log('Add new todo')
+export function AddNewTodo() {
+  const form = useForm<AddNewTodoFormData>()
+
+  const dispatch = useDispatch()
+
+  function addNewToDo(formData: AddNewTodoFormData) {
+    dispatch(add(formData))
   }
 
   return (
@@ -20,11 +28,12 @@ export function AddNewTodo() {
         className="flex w-full gap-2"
       >
         <FormField
-          name="todo"
+          name="text"
           control={form.control}
           render={({ field }) => (
             <FormItem className="w-full">
               <Input
+                required
                 placeholder="Add todo description"
                 className="w-full"
                 {...field}
