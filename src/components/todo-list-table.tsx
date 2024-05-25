@@ -8,16 +8,16 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { useAppDispach } from '@/hooks/use-app-dispatch'
 import { removeTodo } from '@/lib/features/todos/todos-slice'
 import { useAppSelector } from '@/lib/store'
 import { TrashIcon } from 'lucide-react'
-import { useDispatch } from 'react-redux'
 import { Button } from './ui/button'
 import { Checkbox } from './ui/checkbox'
 
 export function TodoListTable() {
   const todos = useAppSelector((store) => store.todos)
-  const dispatch = useDispatch()
+  const dispatch = useAppDispach()
 
   return (
     <Table>

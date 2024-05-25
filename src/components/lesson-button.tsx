@@ -1,12 +1,12 @@
 import { Lesson } from '@/@types/lesson'
+import { useAppDispach } from '@/hooks/use-app-dispatch'
 import { useCurrentContent } from '@/hooks/use-current-content'
 import { setCurrentLesson } from '@/lib/features/player/player-slice'
 import { VideoIcon } from 'lucide-react'
-import { useDispatch } from 'react-redux'
 import { Button } from './ui/button'
 
 export function LessonButton(lesson: Lesson) {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispach()
   const {
     lesson: { id },
   } = useCurrentContent()

@@ -1,13 +1,13 @@
 'use client'
 
+import { useAppDispach } from '@/hooks/use-app-dispatch'
 import { useCurrentContent } from '@/hooks/use-current-content'
 import { nextLesson } from '@/lib/features/player/player-slice'
 import { useEffect, useState } from 'react'
 import Player from 'react-player'
-import { useDispatch } from 'react-redux'
 
 export function ReactPlayer() {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispach()
 
   const {
     lesson: { id },
