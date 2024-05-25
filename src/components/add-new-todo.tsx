@@ -1,6 +1,6 @@
 'use client'
 
-import { add } from '@/store'
+import { add } from '@/lib/features/todos/todos-slice'
 import { PlusIcon } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'

@@ -8,7 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { remove, useAppSelector } from '@/store'
+import { remove } from '@/lib/features/todos/todos-slice'
+import { useAppSelector } from '@/lib/store'
 import { TrashIcon } from 'lucide-react'
 import { useDispatch } from 'react-redux'
 import { Button } from './ui/button'

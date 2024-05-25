@@ -1,7 +1,6 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
-import { TypedUseSelectorHook, useSelector } from 'react-redux'
+import { createSlice } from '@reduxjs/toolkit'
 
-const todoSlice = createSlice({
+export const todosSlice = createSlice({
   name: 'todos',
   initialState: [
     {
@@ -30,13 +29,4 @@ const todoSlice = createSlice({
   },
 })
 
-export const store = configureStore({
-  reducer: {
-    todo: todoSlice.reducer,
-  },
-})
-
-export const { add, remove } = todoSlice.actions
-
-export type RootState = ReturnType<typeof store.getState>
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+export const { add, remove } = todosSlice.actions
