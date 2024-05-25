@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { initialState } from './initial-state'
+import { initialPlayerState } from './initial-player-state'
 
 const playerSlice = createSlice({
   name: 'player',
-  initialState,
+  initialState: initialPlayerState,
   reducers: {
     setCurrentLesson: (state, action) => {
       state.course.modules.forEach((module, moduleIndex) => {
