@@ -1,6 +1,6 @@
 'use client'
 
-import { useAppDispach } from '@/hooks/use-app-dispatch'
+import { useAppDispatch } from '@/hooks/use-app-dispatch'
 import { addNewTodo } from '@/lib/features/todos/todos-slice'
 import { PlusIcon } from 'lucide-react'
 import { useForm } from 'react-hook-form'
@@ -15,7 +15,7 @@ type AddNewTodoFormData = {
 export function AddNewTodo() {
   const form = useForm<AddNewTodoFormData>()
 
-  const dispatch = useAppDispach()
+  const dispatch = useAppDispatch()
 
   function handleAddNewTodo(formData: AddNewTodoFormData) {
     dispatch(addNewTodo(formData))
