@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const todosSlice = createSlice({
+const todosSlice = createSlice({
   name: 'todos',
   initialState: [
     {
@@ -29,4 +29,4 @@ export const todosSlice = createSlice({
   },
 })
 
-export const { add, remove } = todosSlice.actions
+export const todos = todosSlice.reducer
