@@ -1,16 +1,15 @@
 import { Lesson } from '@/@types/lesson'
+import { useCurrentContent } from '@/hooks/use-current-content'
 import { setCurrentLesson } from '@/lib/features/player/player-slice'
-import { useAppSelector } from '@/lib/store'
 import { VideoIcon } from 'lucide-react'
 import { useDispatch } from 'react-redux'
 import { Button } from './ui/button'
 
 export function LessonButton(lesson: Lesson) {
   const dispatch = useDispatch()
-  const leassonId = useAppSelector((state) => {
-    const { moduleIndex, lessonIndex } = state.player.currentLesson
-    return state.player.course.modules[moduleIndex].lessons[lessonIndex].id
-  })
+  const {
+    lesson: { id },
+  } = useCurrentContent()
 
   return (
     <Button
@@ -18,7 +17,7 @@ export function LessonButton(lesson: Lesson) {
       className={`
         w-full justify-between items-center
         ${
-          lesson.id === leassonId
+          lesson.id === id
             ? 'text-emerald-500 hover:text-emerald-500'
             : 'text-muted-foreground'
         }  

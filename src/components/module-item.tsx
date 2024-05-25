@@ -1,5 +1,5 @@
 import { Module } from '@/@types/module'
-import { useAppSelector } from '@/lib/store'
+import { useCurrentContent } from '@/hooks/use-current-content'
 import { LessonButton } from './lesson-button'
 import {
   AccordionContent,
@@ -8,10 +8,7 @@ import {
 } from './ui/accordion'
 
 export function ModuleItem(module: Module) {
-  const moduleId = useAppSelector((state) => {
-    const { moduleIndex } = state.player.currentLesson
-    return state.player.course.modules[moduleIndex].id
-  })
+  const { currentModuleId } = useCurrentContent()
 
   return (
     <AccordionItem value={module.id}>
@@ -21,7 +18,7 @@ export function ModuleItem(module: Module) {
             className={`
             flex h-10 w-10 justify-center items-center rounded-full bg-zinc-950 border-2 border-zinc-950
             ${
-              module.id === moduleId &&
+              module.id === currentModuleId &&
               'font-bold text-emerald-500 border-emerald-500'
             }
           `}

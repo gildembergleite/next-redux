@@ -1,7 +1,7 @@
 'use client'
 
+import { useCurrentContent } from '@/hooks/use-current-content'
 import { nextLesson } from '@/lib/features/player/player-slice'
-import { useAppSelector } from '@/lib/store'
 import { useEffect, useState } from 'react'
 import Player from 'react-player'
 import { useDispatch } from 'react-redux'
@@ -9,10 +9,9 @@ import { useDispatch } from 'react-redux'
 export function ReactPlayer() {
   const dispatch = useDispatch()
 
-  const { id } = useAppSelector((state) => {
-    const { lessonIndex, moduleIndex } = state.player.currentLesson
-    return state.player.course.modules[moduleIndex].lessons[lessonIndex]
-  })
+  const {
+    lesson: { id },
+  } = useCurrentContent()
 
   const [isClientLoaded, setIsClientLoaded] = useState(false)
 
