@@ -1,6 +1,6 @@
 'use client'
 
-import { add } from '@/lib/features/todos/todos-slice'
+import { addNewTodo } from '@/lib/features/todos/todos-slice'
 import { PlusIcon } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
@@ -17,14 +17,14 @@ export function AddNewTodo() {
 
   const dispatch = useDispatch()
 
-  function addNewToDo(formData: AddNewTodoFormData) {
-    dispatch(add(formData))
+  function handleAddNewTodo(formData: AddNewTodoFormData) {
+    dispatch(addNewTodo(formData))
   }
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(addNewToDo)}
+        onSubmit={form.handleSubmit(handleAddNewTodo)}
         className="flex w-full gap-2"
       >
         <FormField

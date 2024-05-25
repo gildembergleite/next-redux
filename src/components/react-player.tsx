@@ -1,9 +1,15 @@
 'use client'
 
+import { useAppSelector } from '@/lib/store'
 import { useEffect, useState } from 'react'
 import Player from 'react-player'
 
 export function ReactPlayer() {
+  const { id } = useAppSelector((state) => {
+    const { lessonIndex, moduleIndex } = state.player.currentLesson
+    return state.player.course.modules[moduleIndex].lessons[lessonIndex]
+  })
+
   const [isClientLoaded, setIsClientLoaded] = useState(false)
 
   useEffect(() => {
@@ -16,7 +22,7 @@ export function ReactPlayer() {
         <Player
           width={'100%'}
           height={'100%'}
-          url={'https://www.youtube.com/watch?v=jfKfPfyJRdk'}
+          url={`https://www.youtube.com/watch?v=${id}`}
           controls
         />
       )}

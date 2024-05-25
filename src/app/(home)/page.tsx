@@ -15,7 +15,7 @@ export default function HomePage() {
             Deixar feedback
           </Button>
         </div>
-        <main className="relative flex w-full rounded-md border border-zinc-800 bg-zinc-900 pr-80 overflow-hidden">
+        <main className="relative flex w-full rounded-md border border-zinc-800 bg-zinc-900 pr-96 overflow-hidden">
           <section className="w-full">
             <ReactPlayer />
           </section>

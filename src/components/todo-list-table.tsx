@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { remove } from '@/lib/features/todos/todos-slice'
+import { removeTodo } from '@/lib/features/todos/todos-slice'
 import { useAppSelector } from '@/lib/store'
 import { TrashIcon } from 'lucide-react'
 import { useDispatch } from 'react-redux'
@@ -16,12 +16,8 @@ import { Button } from './ui/button'
 import { Checkbox } from './ui/checkbox'
 
 export function TodoListTable() {
-  const todos = useAppSelector((store) => store.todo)
+  const todos = useAppSelector((store) => store.todos)
   const dispatch = useDispatch()
-
-  function deleteTodo(id: number) {
-    dispatch(remove({ id }))
-  }
 
   return (
     <Table>
@@ -57,7 +53,7 @@ export function TodoListTable() {
               <Button
                 size={'icon'}
                 variant={'link'}
-                onClick={() => deleteTodo(todo.id)}
+                onClick={() => dispatch(removeTodo({ id: todo.id }))}
                 className="w-min h-min p-0"
               >
                 <TrashIcon className="w-4 h-4 text-destructive" />

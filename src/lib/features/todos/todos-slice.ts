@@ -15,14 +15,14 @@ const todosSlice = createSlice({
     },
   ],
   reducers: {
-    add: (state, action) => {
+    addNewTodo: (state, action) => {
       state.push({
         id: state.length + 1,
         text: action.payload.text,
         completed: false,
       })
     },
-    remove: (state, action) => {
+    removeTodo: (state, action) => {
       state = state.filter((todo) => todo.id !== action.payload.id)
       return state
     },
@@ -30,3 +30,4 @@ const todosSlice = createSlice({
 })
 
 export const todos = todosSlice.reducer
+export const { addNewTodo, removeTodo } = todosSlice.actions

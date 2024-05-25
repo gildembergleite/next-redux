@@ -11,7 +11,7 @@ export function ModulesContainer() {
   return (
     <>
       {modules.map((module) => (
-        <ModuleItem key={module.id} module={module} />
+        <ModuleItem key={module.id} {...module} />
       ))}
     </>
   )
